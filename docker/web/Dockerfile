@@ -13,10 +13,12 @@ unzip \
 vim \
 libpng-dev \
 libpq-dev \
-&& docker-php-ext-install pdo_mysql bcmath zip openssl
+&& docker-php-ext-install pdo_mysql bcmath
 
 #RUN pecl install xdebug \
 #  && docker-php-ext-enable xdebug
 
 RUN mv /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled
 RUN /bin/sh -c a2enmod rewrite
+
+WORKDIR /var/www/html
